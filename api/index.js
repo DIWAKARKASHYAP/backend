@@ -29,10 +29,10 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-//  eshop-tutorial-pyri.vercel.app
+// Configure CORS
 app.use(
     cors({
-        origin: "http://localhost:3000",
+        origin: "*",
         credentials: true,
     })
 );
