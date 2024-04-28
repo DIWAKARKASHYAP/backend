@@ -29,7 +29,7 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// Configure CORS
+//  eshop-tutorial-pyri.vercel.app
 app.use(cors());
 
 app.use(express.json());
@@ -70,8 +70,8 @@ app.get("/", (req, res) => {
 app.use(ErrorHandler);
 
 // create server
-const server = app.listen(8000, () => {
-    console.log(`Server is running on http://localhost:8000`);
+const server = app.listen(process.env.PORT, () => {
+    console.log(`Server is running on port ${process.env.PORT}`);
 });
 
 // unhandled promise rejection
