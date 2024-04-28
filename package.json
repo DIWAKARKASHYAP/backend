@@ -11,7 +11,6 @@
     "start": "node api/index.js",
     "vercel-build": "echo hello"
   },
-  "author": "shahriar Sajeeb",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
