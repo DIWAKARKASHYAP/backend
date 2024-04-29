@@ -13,15 +13,14 @@ const cloudinary = require("cloudinary");
 //         credentials: true, // if needed
 //     })
 // );
-
 app.use(
     cors({
+        origin: "https://multi-vendor-frontend-flax.vercel.app",
         methods: "GET,POST,PATCH,DELETE,OPTIONS",
         optionsSuccessStatus: 200,
-        origin: "https://multi-vendor-frontend-flax.vercel.app",
+        credentials: true, // Include this if you need to send cookies in requests
     })
 );
-app.options("*", cors());
 // app.use(
 //     cors({
 //         origin: "http://localhost:3000",
