@@ -9,7 +9,7 @@ const cloudinary = require("cloudinary");
 
 app.use(
     cors({
-        origin: "http://localhost:3000/",
+        origin: "https://multi-vendor-frontend-flax.vercel.app",
         credentials: true, // if needed
     })
 );
