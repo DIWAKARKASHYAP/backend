@@ -7,12 +7,27 @@ const cors = require("cors");
 const connectDatabase = require("../db/Database");
 const cloudinary = require("cloudinary");
 
+// app.use(
+//     cors({
+//         origin: "https://multi-vendor-frontend-flax.vercel.app",
+//         credentials: true, // if needed
+//     })
+// );
+
 app.use(
     cors({
+        methods: "GET,POST,PATCH,DELETE,OPTIONS",
+        optionsSuccessStatus: 200,
         origin: "https://multi-vendor-frontend-flax.vercel.app",
-        credentials: true, // if needed
     })
 );
+app.options("*", cors());
+// app.use(
+//     cors({
+//         origin: "http://localhost:3000",
+//         credentials: true, // if needed
+//     })
+// );
 // Handling uncaught Exception
 process.on("uncaughtException", (err) => {
     console.log(`Error: ${err.message}`);
