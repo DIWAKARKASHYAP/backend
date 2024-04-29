@@ -7,6 +7,12 @@ const cors = require("cors");
 const connectDatabase = require("../db/Database");
 const cloudinary = require("cloudinary");
 
+app.use(
+    cors({
+        origin: "http://localhost:3000/",
+        credentials: true, // if needed
+    })
+);
 // Handling uncaught Exception
 process.on("uncaughtException", (err) => {
     console.log(`Error: ${err.message}`);
@@ -30,12 +36,7 @@ cloudinary.config({
 });
 
 //  eshop-tutorial-pyri.vercel.app
-app.use(
-    cors({
-        origin: "http://localhost:3000/",
-        credentials: true, // if needed
-    })
-);
+
 app.use(express.json());
 app.use(cookieParser());
 app.use("/test", (req, res) => {
