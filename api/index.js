@@ -31,7 +31,12 @@ cloudinary.config({
 
 //  eshop-tutorial-pyri.vercel.app
 app.use(express.json());
-app.use(cors());
+app.use(
+    cors({
+        origin: "*",
+        credentials: true, // if needed
+    })
+);
 app.use(cookieParser());
 app.use("/test", (req, res) => {
     res.send("Hello world!");
