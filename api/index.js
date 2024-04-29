@@ -13,14 +13,20 @@ const cloudinary = require("cloudinary");
 //         credentials: true, // if needed
 //     })
 // );
-app.use(
-    cors({
-        origin: "https://multi-vendor-frontend-flax.vercel.app",
-        methods: "GET,POST,PATCH,DELETE,OPTIONS",
-        optionsSuccessStatus: 200,
-        credentials: true, // Include this if you need to send cookies in requests
-    })
-);
+const corsOptions = {
+    origin: function (origin, callback) {
+        const allowedOrigins = [
+            "https://multi-vendor-frontend-flax.vercel.app",
+        ];
+        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
+    credentials: true,
+};
+app.use(cors(corsOptions));
 // app.use(
 //     cors({
 //         origin: "http://localhost:3000",
