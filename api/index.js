@@ -29,7 +29,7 @@ const cloudinary = require("cloudinary");
 // app.use(cors(corsOptions));
 app.use(
     cors({
-        origin: "*",
+        // origin: "*",
         credentials: true, // if needed
     })
 );
