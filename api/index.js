@@ -13,26 +13,26 @@ const cloudinary = require("cloudinary");
 //         credentials: true, // if needed
 //     })
 // );
-const corsOptions = {
-    origin: function (origin, callback) {
-        const allowedOrigins = [
-            "https://multi-vendor-frontend-flax.vercel.app",
-        ];
-        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-            callback(null, true);
-        } else {
-            callback(new Error("Not allowed by CORS"));
-        }
-    },
-    credentials: true,
-};
-app.use(cors(corsOptions));
-// app.use(
-//     cors({
-//         origin: "http://localhost:3000",
-//         credentials: true, // if needed
-//     })
-// );
+// const corsOptions = {
+//     origin: function (origin, callback) {
+//         const allowedOrigins = [
+//             "https://multi-vendor-frontend-flax.vercel.app",
+//         ];
+//         if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+//             callback(null, true);
+//         } else {
+//             callback(new Error("Not allowed by CORS"));
+//         }
+//     },
+//     credentials: true,
+// };
+// app.use(cors(corsOptions));
+app.use(
+    cors({
+        origin: "*",
+        credentials: true, // if needed
+    })
+);
 // Handling uncaught Exception
 process.on("uncaughtException", (err) => {
     console.log(`Error: ${err.message}`);
